@@ -1,0 +1,44 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DivEvent = void 0;
+const Enums_1 = require("../../../../Enums");
+class DivEvent {
+    constructor() {
+        this.ids = [];
+        this.enable = false;
+        this.mode = [];
+        this.type = Enums_1.DivType.circle;
+    }
+    get elementId() {
+        return this.ids;
+    }
+    set elementId(value) {
+        this.ids = value;
+    }
+    get el() {
+        return this.elementId;
+    }
+    set el(value) {
+        this.elementId = value;
+    }
+    load(data) {
+        var _a, _b;
+        if (data === undefined) {
+            return;
+        }
+        const ids = (_b = (_a = data.ids) !== null && _a !== void 0 ? _a : data.elementId) !== null && _b !== void 0 ? _b : data.el;
+        if (ids !== undefined) {
+            this.ids = ids;
+        }
+        if (data.enable !== undefined) {
+            this.enable = data.enable;
+        }
+        if (data.mode !== undefined) {
+            this.mode = data.mode;
+        }
+        if (data.type !== undefined) {
+            this.type = data.type;
+        }
+    }
+}
+exports.DivEvent = DivEvent;

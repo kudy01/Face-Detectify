@@ -1,0 +1,31 @@
+import { Container } from "./Container";
+import type { ICoordinates } from "./Interfaces/ICoordinates";
+import type { IMouseData } from "./Interfaces/IMouseData";
+import type { IRgb } from "./Interfaces/IRgb";
+import { Particle } from "./Particle";
+import { QuadTree } from "../Utils";
+import { RecursivePartial } from "../Types/RecursivePartial";
+import type { IParticles } from "../Options/Interfaces/Particles/IParticles";
+import type { IDelta } from "./Interfaces/IDelta";
+export declare class Particles {
+    private readonly container;
+    get count(): number;
+    array: Particle[];
+    quadTree: QuadTree;
+    pushing?: boolean;
+    linksColor?: IRgb | string;
+    linksColors: Map<string, IRgb | string | undefined>;
+    grabLineColor?: IRgb | string;
+    private interactionManager;
+    constructor(container: Container);
+    init(): void;
+    redraw(): void;
+    removeAt(index: number, quantity?: number): void;
+    remove(particle: Particle): void;
+    update(delta: IDelta): void;
+    draw(delta: IDelta): void;
+    clear(): void;
+    push(nb: number, mouse?: IMouseData, overrideOptions?: RecursivePartial<IParticles>): void;
+    addParticle(position?: ICoordinates, overrideOptions?: RecursivePartial<IParticles>): Particle | undefined;
+    removeQuantity(quantity: number): void;
+}

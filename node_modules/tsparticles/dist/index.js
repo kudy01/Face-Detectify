@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.tsParticles = exports.pJSDom = exports.particlesJS = void 0;
+const tslib_1 = require("tslib");
+const pjs_1 = require("./pjs");
+const main_1 = require("./main");
+const tsParticles = new main_1.Main();
+exports.tsParticles = tsParticles;
+tsParticles.init();
+const { particlesJS, pJSDom } = pjs_1.initPjs(tsParticles);
+exports.particlesJS = particlesJS;
+exports.pJSDom = pJSDom;
+tslib_1.__exportStar(require("./Enums"), exports);
